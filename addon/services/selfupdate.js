@@ -63,6 +63,9 @@ export default Ember.Service.extend({
   _compareVersions(newVersion) {
     var currentVersion = this.get('version');
     hasUpdate = newVersion !== currentVersion;
+    if(hasUpdate){
+      this.applyUpdate();
+    }
     this.notifyPropertyChange('hasUpdate');
   }
 });
